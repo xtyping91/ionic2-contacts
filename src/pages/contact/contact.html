@@ -7,6 +7,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onClear($event)">
+  </ion-searchbar>
+
+
   <ion-list>
     <span *ngFor="let contact of contactlist">
     <ion-item  *ngIf="contact.displayName && contact.phoneNumbers">

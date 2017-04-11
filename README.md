@@ -36,3 +36,15 @@ npm install --save @ionic-native/contacts
 ionic platform add android
 ionic run android
 ```
+
+## Error 시
+```
+Error: Could not find gradle wrapper within Android SDK. Might need to update your Android SDK.
+Looked here: C:\Users\Administrator\AppData\Local\Android\sdk\tools\templates\gradle\wrapper
+```
+
+```
+https://developer.android.com/studio/index.html
+```
+* 명령줄 도구만 다운로드 (하단 다운로드)
+* sdk 경로 하단 tools 폴더 (%ANDROID_HOME%\tools)에 압축해제

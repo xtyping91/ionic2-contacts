@@ -41,4 +41,23 @@ export class ContactPage {
   contactsSort(a: Contact, b: Contact) {
       return a.displayName < b.displayName ? -1 : (a.displayName == b.displayName ? 0 : 1);
   }
+
+  // 검색 삭제시
+  onClear(event){
+    event.target.value = "";
+  }
+
+  // 입력시
+  onInput(event) {
+    let val = event.target.value;
+    let option = { filter : '' };
+    if (val && val.trim() != '') {
+        option.filter = val;
+    }
+
+    // 연락처 정보를 검색한다.
+    this.contacts.find([ 'displayName', 'phoneNumbers' ], option).then((pcontact: Contact[]) => {
+      this.contactlist = pcontact.sort(this.contactsSort);
+    });
+  }
 }
