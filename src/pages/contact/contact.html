@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <span *ngFor="let contact of contactlist">
+    <ion-item  *ngIf="contact.displayName && contact.phoneNumbers">
+      <ion-avatar item-left *ngIf="contact.photos">
+        <img [src]="sanitize(contact.photos[0].value)">
+      </ion-avatar>
+      <h2>{{contact.displayName}}</h2>
+      <p>{{contact.phoneNumbers[0].value}}</p>
+      <p *ngIf="contact.photos">{{contact.photos[0].type}}, {{contact.photos[0].value}}, {{contact.photos[0].pref}} </p>
+    </ion-item>
+    </span>
+  </ion-list>
+</ion-content>
