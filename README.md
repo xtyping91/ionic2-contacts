@@ -7,7 +7,7 @@
 
 ## 초기 환경설정
 
-1. Cordova Lib를 이용하여 연락처 불러오기
+1. Ionic2 프로젝트 생성
 
 ```bash
 ionic start --v2 exContacts blank
