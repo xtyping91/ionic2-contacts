@@ -6,4 +6,66 @@
 
 <ion-content padding>
   <h2>Ionic2 연락처 불러오기 예제</h2>
+
+  <div *ngIf="simInfo">
+
+    <p *ngIf="simInfo.activeSubscriptionInfoCount">
+      activeSubscriptionInfoCount : {{ simInfo.activeSubscriptionInfoCount }}
+    </p>
+    <p *ngIf="simInfo.activeSubscriptionInfoCountMax">
+      activeSubscriptionInfoCountMax : {{ simInfo.activeSubscriptionInfoCountMax }}
+    </p>
+    <p *ngIf="simInfo.callState">
+      callState : {{ simInfo.callState }}
+    </p>
+    <p *ngIf="simInfo.cards">
+      cards : {{ simInfo.cards }}
+    </p>
+    <p *ngIf="simInfo.carrierName">
+      carrierName : {{ simInfo.carrierName }}
+    </p>
+    <p *ngIf="simInfo.countryCode">
+      countryCode : {{ simInfo.countryCode }}
+    </p>
+    <p *ngIf="simInfo.dataActivity">
+      dataActivity : {{ simInfo.dataActivity }}
+    </p>
+    <p *ngIf="simInfo.deviceId">
+      deviceId : {{ simInfo.deviceId }}
+    </p>
+    <p *ngIf="simInfo.deviceSoftwareVersion">
+      deviceSoftwareVersion : {{ simInfo.deviceSoftwareVersion }}
+    </p>
+    <p *ngIf="simInfo.isNetworkRoaming">
+      isNetworkRoaming : {{ simInfo.isNetworkRoaming }}
+    </p>
+    <p *ngIf="simInfo.mcc">
+      mcc : {{ simInfo.mcc }}
+    </p>
+    <p *ngIf="simInfo.mnc">
+      mnc : {{ simInfo.mnc }}
+    </p>
+    <p *ngIf="simInfo.networkType">
+      networkType : {{ simInfo.networkType }}
+    </p>
+    <p *ngIf="simInfo.phoneCount">
+      phoneCount : {{ simInfo.phoneCount }}
+    </p>
+    <p *ngIf="simInfo.phoneNumber">
+      phoneNumber : {{ simInfo.phoneNumber }}
+    </p>
+    <p *ngIf="simInfo.phoneType">
+      phoneType : {{ simInfo.phoneType }}
+    </p>
+    <p *ngIf="simInfo.simSerialNumber">
+      simSerialNumber : {{ simInfo.simSerialNumber }}
+    </p>
+    <p *ngIf="simInfo.simState">
+      simState : {{ simInfo.simState }}
+    </p>
+    <p *ngIf="simInfo.subscriberId">
+      subscriberId : {{ simInfo.subscriberId }}
+    </p>
+  </div>
+
 </ion-content>
