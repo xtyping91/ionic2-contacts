@@ -17,11 +17,13 @@ cd exContacts
 * Cordova Contacts Plugin 추가
 ```bash
 ionic plugin add cordova-plugin-contacts
+ionic plugin add cordova-plugin-sim
 ```
 
 * Ionic Contacts 요소 설치 및 package 추가
 ```bash
 npm install --save @ionic-native/contacts
+npm install --save @ionic-native/sim
 ```
 
 ## 작업파일
@@ -34,7 +36,11 @@ npm install --save @ionic-native/contacts
 * ios 는 현재 테스트 못함.
 ```
 ionic platform add android
-ionic run android
+
+```
+```
+ionic run android -lc
+옵션 참고 https://ionicframework.com/docs/cli/run/
 ```
 
 ## Error 시
