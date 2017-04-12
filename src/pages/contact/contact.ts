@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController } from 'ionic-angular';
+import { Platform, LoadingController, NavController } from 'ionic-angular';
 import { Contacts, Contact } from '@ionic-native/contacts';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -9,10 +9,30 @@ import { DomSanitizer } from '@angular/platform-browser';
   providers: [Contacts]
 })
 export class ContactPage {
+  isContacts: Boolean = false;
   contactlist: Contact[];
 
-  constructor(private loadingCtrl: LoadingController, private sanitizer:DomSanitizer, public contacts: Contacts, public navCtrl: NavController) {
-    this.init();
+  constructor(public platform: Platform, private loadingCtrl: LoadingController, private sanitizer:DomSanitizer, public contacts: Contacts, public navCtrl: NavController) {
+      
+      platform.ready().then(()=>{
+        /*
+        if(platform.is('android')) console.log("android");
+        if(platform.is('cordova')) console.log("cordova");
+        if(platform.is('core')) console.log("core");
+        if(platform.is('ios')) console.log("ios");
+        if(platform.is('ipad')) console.log("ipad");
+        if(platform.is('iphone')) console.log("iphone");
+        if(platform.is('mobile')) console.log("mobile");
+        if(platform.is('mobileweb')) console.log("mobileweb");
+        if(platform.is('phablet')) console.log("phablet");
+        if(platform.is('tablet')) console.log("tablet");
+        if(platform.is('windows')) console.log("windows");
+        */
+        if(!platform.is('mobileweb') && (platform.is('android') || platform.is('ios'))) {
+          this.isContacts = true;
+          this.init();
+        }
+      });
   }
 
   init() {
