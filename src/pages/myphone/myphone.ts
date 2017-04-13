@@ -10,6 +10,25 @@ import { Sim } from '@ionic-native/sim';
 export class MyPhone {
   simInfo: any;
   constructor(private sim: Sim, public navCtrl: NavController) {
+
+    // 권한 획득하기
+    this.sim.requestReadPermission().then(
+      () => {
+        console.log('Permission granted');
+
+        // 권한 획득후 핸드폰번호 획득
+        return this.sim.getSimInfo();
+      },
+      () => {
+        console.log('Permission denied');
+      }
+    ).then(
+      (info) => { this.simInfo = info; console.log('Sim info: ', info); },
+      (err) => console.log('Unable to get sim info: ', err)
+    );
+
+
+/*
     this.sim.getSimInfo().then(
       (info) => { this.simInfo = info; console.log('Sim info: ', info); },
       (err) => console.log('Unable to get sim info: ', err)
@@ -23,5 +42,6 @@ export class MyPhone {
       () => console.log('Permission granted'),
       () => console.log('Permission denied')
     );
+*/
   }
 }
